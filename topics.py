@@ -125,7 +125,7 @@ geografia = [['Qual continente é o segundo menor do mundo em tamanho, mas tamb�
     ['Qual país a Áustria não faz fronteira?', ['Eslováquia', 'França', 'Suíça'], 'França'],
     ['Qual é a capital da Jamaica?', ['Kingston', 'Bridgetown', 'Porto Príncipe'], 'Kingston']]
 
-curiosidade = [['Qual a temperatura necessária para a gasolina congelar?', ['-100 graus centigrados', '-117,5 graus centigrados', 'Nunca congela'], 'Nunca congela'],
+curiosidades = [['Qual a temperatura necessária para a gasolina congelar?', ['-100 graus centigrados', '-117,5 graus centigrados', 'Nunca congela'], 'Nunca congela'],
     ['Qual o nome do presidente do Brasil que ficou conhecido como Jango?', ['Getúlio Vargas', 'João Figueiredo', 'João Goulart'], 'João Goulart'],
     ['Qual o livro mais vendido no mundo a seguir à Bíblia?', ['O Senhor dos Anéis', 'Dom Quixote', 'O Pequeno Príncipe'], 'Dom Quixote'],
     ['Quais os países que têm a maior e a menor expectativa de vida do mundo?', ['Japão e Serra Leoa', 'Austrália e Afeganistão', 'Itália e Chade'], 'Japão e Serra Leoa'],

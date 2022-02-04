@@ -1,5 +1,5 @@
 # Meus
-from topics import tecnologia, astronomia, geografia, curiosidade
+from topics import tecnologia, astronomia, geografia, curiosidades
 # Terceiros
 from random import shuffle
 import os, platform
@@ -27,6 +27,7 @@ def fazer_pergunta(catg):
             if continuar:
                 if alternativa == 'A' and catg[c][1][0] == catg[c][2] or alternativa == 'B' and catg[c][1][1] == catg[c][2] or alternativa == 'C' and catg[c][1][2] == catg[c][2]:
                     print('\033[1;32mParabéns você acertou.\033[m')
+                    print()
                     c +=1
                 else:
                     print(f'\033[1;31mQue pena você errou.\033[1;33m Resposta Correta: {catg[c][2]}\033[m')
@@ -49,7 +50,7 @@ Parabéns, você respondeu todas as perguntas
             break
 
 
-# Função que valida e retorna a alternativa do jogador.
+# Função que valida e retorna a resposta do jogador.
 def validar_alternativa():
     global continuar
     while True:
@@ -69,6 +70,7 @@ def validar_alternativa():
                 print('\033[1;31mDigite uma alternativa válida.\033[m')
 
 
+limpar_buffer()
 print(r'''
   _______________________________________
            ___          _
@@ -83,7 +85,7 @@ print(r'''
     [0] Tecnologia                 .--.
     [1] Astronomia                |o_o |
     [2] Geografia                 |:_/ |
-    [3] Curiosidade              //   \ \
+    [3] Curiosidades             //   \ \
     [4] Gerais                  (|     | )
                                 /'\_   _/`\
                                 \___)=(___/
@@ -105,17 +107,54 @@ while continuar:
         else:
             print('\033[1;31mDigite uma opção válida.\033[m')
 
-# Chamar função passando a categoria escolhida como parâmetro.
+
+# Mostrar o título da categoria escolhida pelo jogador e chama a função principal passando a categoria como parâmetro.
 if continuar:
+    limpar_buffer()
     if opcao == 0:
+        print(r'''
+     _                             _                _
+    | |_  ___   ___  _ __    ___  | |  ___    __ _ (_)  __ _
+    | __|/ _ \ / __|| '_ \  / _ \ | | / _ \  / _` || | / _` |
+    | |_|  __/| (__ | | | || (_) || || (_) || (_| || || (_| |
+     \__|\___| \___||_| |_| \___/ |_| \___/  \__, ||_| \__,_|
+                                             |___/
+        ''')
         fazer_pergunta(tecnologia)
     elif opcao == 1:
+        print('''
+        _          _                                         _
+       / \    ___ | |_  _ __  ___   _ __    ___   _ __ ___  (_)  __ _
+      / _ \  / __|| __|| '__|/ _ \ | '_ \  / _ \ | '_ ` _ \ | | / _` |
+     / ___ \ \__ \| |_ | |  | (_) || | | || (_) || | | | | || || (_| |
+    /_/   \_\|___/ \__||_|   \___/ |_| |_| \___/ |_| |_| |_||_| \__,_|
+        ''')
         fazer_pergunta(astronomia)
     elif opcao == 2:
+        print('''
+      ____                                   __  _
+     / ___|  ___   ___    __ _  _ __  __ _  / _|(_)  __ _
+    | |  _  / _ \ / _ \  / _` || '__|/ _` || |_ | | / _` |
+    | |_| ||  __/| (_) || (_| || |  | (_| ||  _|| || (_| |
+     \____| \___| \___/  \__, ||_|   \__,_||_|  |_| \__,_|
+                         |___/
+        ''')
         fazer_pergunta(geografia)
     elif opcao == 3:
-        fazer_pergunta(curiosidade)
-    elif opcao == 4:
-        pass
+        print('''
+      ____              _              _      _             _
+     / ___|_   _  _ __ (_)  ___   ___ (_)  __| |  __ _   __| |  ___  ___
+    | |   | | | || '__|| | / _ \ / __|| | / _` | / _` | / _` | / _ \/ __|
+    | |___| |_| || |   | || (_) |\__ \| || (_| || (_| || (_| ||  __/\__ \
+     \____|\__,_||_|   |_| \___/ |___/|_| \__,_| \__,_| \__,_| \___||___/
+        ''')
+        fazer_pergunta(curiosidades)
     else:
-        pass
+        print(r'''
+      ____                    _
+     / ___|  ___  _ __  __ _ (_) ___
+    | |  _  / _ \| '__|/ _` || |/ __|
+    | |_| ||  __/| |  | (_| || |\__ \
+     \____| \___||_|   \__,_||_||___/
+        ''')
+        fazer_pergunta(tecnologia+astronomia+geografia+curiosidades)
