@@ -24,7 +24,7 @@
   Github:    https://github.com/GabrielSantos198
   Website:   https://gabrielsantana.herokuapp.com/
   E-mail:    gabrielsantana9807@gmail.com
-            
+
   - Caso tenha gostado deixe sua 🌟, pra dar aquela força.
 '''
 
@@ -47,8 +47,11 @@ def limpar_buffer():
 
 
 # Função de fala.
+som = True  # Caso False o som será desativado.
 def falar_texto(msg):
-    os.system(f'espeak -vpt-br "{msg}"')
+    global som
+    if som:
+        os.system(f'espeak -vpt-br "{msg}"')
 
 
 continuar = True
@@ -88,6 +91,7 @@ def fazer_pergunta(catg):
 Parabéns, você respondeu todas as perguntas
       dessa categoria corretamente.
             ''')
+            falar_texto('Parabéns, você respondeu todas as perguntas dessa categoria corretamente.')
             break
 
 
@@ -106,7 +110,6 @@ def validar_alternativa():
         else:
             if alternativa in 'ABC':
                 return alternativa
-                break
             print('\033[1;31mDigite uma alternativa válida.\033[m')
 
 
@@ -146,6 +149,16 @@ while continuar:
         else:
             if opcao >= 0 and opcao <= 4:
                 break
+            elif opcao == 5:
+                if som:
+                    som = False
+                    print('\033[1;33mDesativando Som...\033[m')
+                else:
+                    som = True
+                    print('\033[1;33mAtivando Som...\033[m')
+                topo = True
+                sleep(2)
+                break
             elif opcao == 8:
                 limpar_buffer()
                 print('''
@@ -174,7 +187,7 @@ while continuar:
   Github:    https://github.com/GabrielSantos198
   Website:   https://gabrielsantana.herokuapp.com/
   E-mail:    gabrielsantana9807@gmail.com
-            
+ 
   - Caso tenha gostado deixe sua 🌟, pra dar aquela força.
                 ''')
                 try:

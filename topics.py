@@ -1,3 +1,8 @@
+'''
+Perguntas, alternativas e respostas de todas as categorias disponíveis. Tudo armazenado organizadamente em listas.
+'''
+
+
 tecnologia = [['Qual das seguintes é uma linguagem de codificação também conhecida como um termo para café?', ['Java', 'Joe', 'CoffeeBean'], 'Java'],
   ['O que significa a sigla “www” na internet?', ['World wide web', 'Web world wide', 'Web wide world'], 'World wide web'],
   ['Qual foi o primeiro tweet da história?', ['Olá, twitter.', 'Olá, mundo.', 'Estou preparando meu twitter.'], 'Estou preparando meu twitter.'], 
