@@ -141,4 +141,3 @@ curiosidades = [['Qual a temperatura necessária para a gasolina congelar?', ['-
     ['Quem foi a primeira mulher a se eleger presidente de um país?', ['Cristina Kirchner', 'Vigdís Finnbogadóttir', 'Dilma Roussef'], 'Vigdís Finnbogadóttir'],
     ['Qual o lugar mais profundo dos oceanos?', ['Fossa de Tonga', 'Fossa de Bentley', 'Fossa das Marianas'], 'Fossa das Marianas'],
     ['Quantos pares de costelas um ser humano, normalmente, possui?', ['12', '10', '8'], '12']]
-
