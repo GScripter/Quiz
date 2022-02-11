@@ -29,10 +29,15 @@ __Note__:<br>
   * Pull requests are welcome if you have any code improvement idea.<br>
   * Any exception error will be handled normally.<br>
   * Ctrl-c Stops the program at any time.<br>
-  * Don't forget to download the espeak package on your OS, so that the program can speak. On linux just run "sudo apt-get install espeak".
+  * Don't forget to download the espeak package on your OS, so that the program can speak. On linux just run "sudo apt-get install espeak".<br>
+  * Sound only works with internet.
   
 ## How to install and Run:
 ```
+apt-get install python
+
+apt-get install git
+
 apt-get install espeak
 
 git clone https://github.com/GabrielSantos198/Quiz
