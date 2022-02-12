@@ -34,17 +34,13 @@ __Note__:<br>
   
 ## How to install and Run:
 ```
-apt-get install python
-
-apt-get install git
-
-apt-get install espeak
+sudo apt install python git espeak
 
 git clone https://github.com/GabrielSantos198/Quiz
 
 cd Quiz
 
-python main.py
+python quiz.py
 ```
 
 ### Where can you find me: 👽

@@ -14,10 +14,10 @@
      * Ctrl-c Interrompe o programa a qualquer momento.
      * Não se esqueça de baixar o pacote espeak em seu OS,
        para que o programa possa falar. No linux basta rodar
-       "apt-get install espeak".
+       "sudo apt install espeak".
      * O som só funciona com internet. Caso não tenha ou seja fraca
        o programa funcionará de forma inconsistente, a menos que
-       você desative o som na opção 5.
+       você desative-o na opção 5.
 
         Onde você pode me encontrar:  👽
      ------------------------------
@@ -32,14 +32,16 @@
 '''
 
 
-# Terceiros
+# Do Python
 from random import shuffle
 import os
 import platform
 from time import sleep
+
 # Meus
 from topics import tecnologia, astronomia, geografia, curiosidades
 from score import Recordes
+from ascii_art import desenho
 
 
 # Função pra limpar o buffer.
@@ -83,20 +85,7 @@ def fazer_pergunta(catg):
                     break
         else:
             limpar_buffer()
-            print(r'''
-             ___________
-            '._==_==_=_.'
-            .-\:      /-.
-           | (|:.     |) |
-            '-|:.     |-'
-              \::.    /
-               '::. .'
-                 ) (
-               _.' '._
-              `"""""""`
-Parabéns, você respondeu todas as perguntas
-      dessa categoria corretamente.
-            ''')
+            desenho(0)
             Recordes(c).adicionar()
             falar_texto('Parabéns, você respondeu todas as perguntas dessa categoria corretamente.')
             break
@@ -138,25 +127,7 @@ def parar():
 while continuar:
     topo = False  # Caso True server pras principais condições do laço se tornarem falsas até que o mesmo dê outra volta. É meio que um macete(Gambiarra), pois o continue do python não daria certo na situação abaixo.
     limpar_buffer()
-    print(r'''
- ______________________________________________
-              ___          _
-             / _ \  _   _ (_) ____
-            | | | || | | || ||_  /
-            | |_| || |_| || | / /
-             \__\_\ \__,_||_|/___|
- ----------------------------------------------
-                                       \
-  Categorias:        Outros:            \
-                                          .--.
-[0] Tecnologia    [5] Som On/Off         |o_o |
-[1] Astronomia    [6] Ver Pontuação      |:_/ |
-[2] Geografia     [7] Reiniciar pontos  //   \ \
-[3] Curiosidades  [8] Sobre            (|     | )
-[4] Gerais                             /'\_   _/`\
-                                       \___)=(___/
- ''')
-
+    desenho(1)
     # Escolha de categoria ou outros.
     while True:
         try:
@@ -177,57 +148,24 @@ while continuar:
     if continuar:
         if opcao == 0:
             limpar_buffer()
-            print(r'''
-   _                             _                _
-  | |_  ___   ___  _ __    ___  | |  ___    __ _ (_)  __ _
-  | __|/ _ \ / __|| '_ \  / _ \ | | / _ \  / _` || | / _` |
-  | |_|  __/| (__ | | | || (_) || || (_) || (_| || || (_| |
-   \__|\___| \___||_| |_| \___/ |_| \___/  \__, ||_| \__,_|
-                                            |___/
-            ''')
+            desenho(3)
             fazer_pergunta(tecnologia)
         elif opcao == 1:
             limpar_buffer()
-            print(r'''
-      _          _                                         _
-     / \    ___ | |_  _ __  ___   _ __    ___   _ __ ___  (_)  __ _
-    / _ \  / __|| __|| '__|/ _ \ | '_ \  / _ \ | '_ ` _ \ | | / _` |
-   / ___ \ \__ \| |_ | |  | (_) || | | || (_) || | | | | || || (_| |
-  /_/   \_\|___/ \__||_|   \___/ |_| |_| \___/ |_| |_| |_||_| \__,_|
-            ''')
+            desenho(4)
             fazer_pergunta(astronomia)
         elif opcao == 2:
             limpar_buffer()
-            print(r'''
-    ____                                   __  _
-   / ___|  ___   ___    __ _  _ __  __ _  / _|(_)  __ _
-  | |  _  / _ \ / _ \  / _` || '__|/ _` || |_ | | / _` |
-  | |_| ||  __/| (_) || (_| || |  | (_| ||  _|| || (_| |
-   \____| \___| \___/  \__, ||_|   \__,_||_|  |_| \__,_|
-                        |___/
-            ''')
+            desenho(5)
             fazer_pergunta(geografia)
         elif opcao == 3:
             limpar_buffer()
-            print(r'''
-    ____              _              _      _             _
-   / ___|_   _  _ __ (_)  ___   ___ (_)  __| |  __ _   __| |  ___  ___
-  | |   | | | || '__|| | / _ \ / __|| | / _` | / _` | / _` | / _ \/ __|
-  | |___| |_| || |   | || (_) |\__ \| || (_| || (_| || (_| ||  __/\__ \
-   \____|\__,_||_|   |_| \___/ |___/|_| \__,_| \__,_| \__,_| \___||___/
-            ''')
+            desenho(6)
             fazer_pergunta(curiosidades)
         elif opcao == 4:
             limpar_buffer()
-            print(r'''
-    ____                    _
-   / ___|  ___  _ __  __ _ (_) ___
-  | |  _  / _ \| '__|/ _` || |/ __|
-  | |_| ||  __/| |  | (_| || |\__ \
-   \____| \___||_|   \__,_||_||___/
-            ''')
+            desenho(7)
             fazer_pergunta(tecnologia+astronomia+geografia+curiosidades)
-        # Ativar/Desativar Som.
         elif opcao == 5:
             if som:
                 som = False
@@ -237,52 +175,18 @@ while continuar:
                 print('\033[1;33mAtivando Som...\033[m')
             topo = True
             sleep(2)
-        # Mostrar Records.
         elif opcao == 6:
             limpar_buffer()
             Recordes().ver()
             topo = True
             parar()
-        # Reiniciar Pontuação.
         elif opcao == 7:
             Recordes().reiniciar()
             topo = True
             sleep(2)
-        # Sobre
         elif opcao == 8:
             limpar_buffer()
-            print('''
-    Responda perguntas divertidas e teste sua inteligência
-    nesse incrível jogo escrito 100% em Python. Aprenda so-
-    bre Tecnologia, Astronomia, Geografia e descubra coisas
-    que você nem imaginava. Jogue muito e acerte o máximo
-    que conseguir. E para que o jogo não venha se tornar
-    monótono, novas atualizações de código e +perguntas serão
-    com frequência acrescentadas.
-
-    Obs:\033[33m
-    * As pull requests são bem vindas caso você tenha alguma
-    ideia de melhoria no código.
-    * Qualquer erro de exceção será tratado normalmente.
-    * Ctrl-c Interrompe o programa a qualquer momento.
-    * Não se esqueça de baixar o pacote espeak em seu OS,
-    para que o programa possa falar. No linux basta rodar
-    apt-get install espeak".
-    * O som só funciona com internet. Caso não tenha ou seja fraca
-      o programa funcionará de forma inconsistente, a menos que 
-      você desative o som na opção 5.\033[m
-
-    Onde você pode me encontrar:  👽
-    ------------------------------
-
-    Autor:     Gabriel Santana
-    Linkedin:  https://www.linkedin.com/in/gabrielsantana444
-    Github:    https://github.com/GabrielSantos198
-    Website:   https://gabrielsantana.herokuapp.com/
-    E-mail:    gabrielsantana9807@gmail.com
-
-    - Caso tenha gostado deixe sua 🌟, pra dar aquela força.
-            ''')
+            desenho(8)
             topo = True
             parar()
 
@@ -313,3 +217,4 @@ while continuar:
                     break
                 print('\033[1;31mDigite uma alternativa válida.\033[m')
                 falar_texto('Digite uma alternativa válida.')
+

@@ -1,34 +1,36 @@
+from ascii_art import desenho
+
+
 class Recordes:
-    def __init__(self, pontos=0):
-        self.pontos = pontos
+    def __init__(self, potuacao_partida=0):
+        self.pontuacao_partida = potuacao_partida
 
     def adicionar(self):
-        nums = []
-        # Abre arquivo, adiciona os pontos feitos na rodada e fecha.
+        pontuacoes = []
+        # Abre arquivo, adiciona a pontuação da rodada e fecha.
         arquivo = open('score.txt', 'a')
-        arquivo.write(f'{self.pontos}\n')
+        arquivo.write(f'{self.pontuacao_partida}\n')
         arquivo.close()
-        # Abre arquivo, joga todos os valos do arquivo na lista acima, ordena do maior pro menor e fecha.
+        # Abre arquivo, joga todos os valos do arquivo na lista, ordena do maior pro menor e fecha.
         arquivo = open('score.txt', 'r')
-        num = ''
-        for r in arquivo:
-            for n in r:
-                if n.isnumeric():
-                    num += n
-            if int(num) not in nums:
-                nums.append(int(num))
-            num = ''
-        nums.sort(reverse=True)
+        pontuacao = ''
+        for linha in arquivo:
+            for caracter in linha:
+                if caracter.isnumeric():
+                    pontuacao += caracter
+            if int(pontuacao) not in pontuacoes:
+                pontuacoes.append(int(pontuacao))
+            pontuacao = ''
+        pontuacoes.sort(reverse=True)
         arquivo.close()
         # Limpar todo o arquivo.
         open('score.txt', 'w').close()
-        # Abre arquivo, joga os 10 primeiros valores da lista acima e fecha o arquivo.
+        # Abre arquivo, joga os 10 primeiros valores da lista e fecha arquivo.
         arquivo = open('score.txt', 'a')
-        for c, l in enumerate(nums):
-            if c <= 9:
-                arquivo.write(f'{l}\n')
+        for contagem, ponto in enumerate(pontuacoes):
+            if contagem <= 9:
+                arquivo.write(f'{ponto}\n')
         arquivo.close()
-
 
     def ver(self):
         try:
@@ -36,44 +38,26 @@ class Recordes:
         except FileNotFoundError:
             print('\033[33mArquivo "score.txt" Inexistente.\033[m')
         else:
-            print(r'''
-             ___________
-            '._==_==_=_.'
-            .-\:      /-.
-           | (|:.     |) |
-            '-|:.     |-'
-              \::.    /
-               '::. .'
-                 ) (
-               _.' '._
-              `"""""""`
-        _              _  ___
-       | |_ ___  _ __ / |/ _ \
-       | __/ _ \| '_ \| | | | |
-       | || (_) | |_) | | |_| |
-        \__\___/| .__/|_|\___/
-                |_|
-            ''')
             cont = 0
+            desenho(9)
             print(f'{"="*20:^38}')
-            for num, arq in enumerate(arquivo):
-                if num == 10:
+            for posicao, pontuacao in enumerate(arquivo):
+                if posicao == 10:
                     break
-                elif num == 0:
-                    print(f'\033[33m{num+1:>14}º   >>>   {arq}\033[m', end='')
-                elif num == 1:
-                    print(f'{num+1:>14}º   >>>   {arq}', end='')
-                elif num == 2:
-                    print(f'\033[95m{num+1:>14}º   >>>   {arq}\033[m', end='')
+                elif posicao == 0:
+                    print(f'\033[33m{posicao+1:>14}º   >>>   {pontuacao}\033[m', end='')
+                elif posicao == 1:
+                    print(f'{posicao+1:>14}º   >>>   {pontuacao}', end='')
+                elif posicao == 2:
+                    print(f'\033[95m{posicao+1:>14}º   >>>   {pontuacao}\033[m', end='')
                 else:
-                    print(f'\033[90m{num+1:>14}º   >>>   {arq}\033[m', end='')
+                    print(f'\033[90m{posicao+1:>14}º   >>>   {pontuacao}\033[m', end='')
                 cont += 1
             if cont == 0:
                 print(f'{"nenhum":>22}')
             print(f'{"="*20:^38}')
             arquivo.close()
             print()
-
 
     def reiniciar(self):
         try:
