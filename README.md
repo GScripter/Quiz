@@ -36,7 +36,7 @@ __Note__:<br>
 ```
 sudo apt install python git espeak
 
-git clone https://github.com/GabrielSantos198/Quiz
+git clone https://github.com/GScripter/Quiz
 
 cd Quiz
 
@@ -45,10 +45,10 @@ python quiz.py
 
 ### Where can you find me: 👽
 
-Author:   Gabriel Santana<br>
-Linkedin: https://www.linkedin.com/in/gabrielsantana444<br>
-Github:   https://github.com/GabrielSantos198<br>
-Website:  https://gabrielsantana.herokuapp.com/<br>
+Author:   GScripter<br>
+Linkedin: https://www.linkedin.com/in/GScripter<br>
+Github:   https://github.com/GScripter<br>
+Website:  https://gabrielsantana.online/<br>
 Email:    gabrielsantana9807@gmail.com
 
 <p align='center'>If you liked it, leave your 🌟, to give that strength.<p>
